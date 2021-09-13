@@ -37,7 +37,7 @@ int main(){
     cin >> x;
     int result  = firstIndex(arr,len,x);
     if(result != -1){
-        cout << result;
+        cout << len - result;
     } else{
         cout << -1;
     }
