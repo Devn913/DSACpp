@@ -11,9 +11,6 @@ Line 2 : Integer N
 #include "iostream"
 using namespace std;
 int multiply(int m,int n){
-    if(n==1){
-        return m;
-    }
     if(n==0){
         return 0;
     }
