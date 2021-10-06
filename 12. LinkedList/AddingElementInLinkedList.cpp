@@ -43,12 +43,12 @@ int main(){
     LinkedList *list = new LinkedList();
     list->add(10);
     list->add(10);
-    list->add(10);
+    list->add(20);
     list->add(10);
     list->add(10);
     cout << list->size<<endl;
     Node *temp = list->head;
-    while(temp->next != NULL){
+    while(temp != NULL){
         cout << temp->val << endl;
         temp = temp->next;
     }
