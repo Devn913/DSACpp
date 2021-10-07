@@ -93,8 +93,7 @@ public:
                 temp = temp->next;
                 counter++;
             }
-            Node *temp2 = temp->next;
-            temp->next = temp2->next;
+            temp->next = (temp->next)->next;
         }
     }
 };
@@ -105,7 +104,7 @@ int main(){
     list->add(1340);
     list->add(210);
     list->add(104);
-    list->add(210);
-    list->removeAt(5);
+    list->add(240);
+    list->removeAt(4);
     list->print();
 }
