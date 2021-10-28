@@ -26,10 +26,10 @@ public:
     void enqueue(int val){
         if(size==capacity){
             int *newArr = new int[capacity*2];
-            int counter = 0;
+            int counter = size-1;
             while (!(isEmpty())){
                 newArr[counter] = dequeue();
-                counter++;
+                counter--;
             }
             frontIndex = 0;
             size = capacity;
@@ -93,6 +93,9 @@ int main(){
     q.enqueue(1020);
     cout << q.getSize() << endl;
     cout << q.peek() << endl;
+    while(!(q.isEmpty())){
+        cout << q.dequeue() <<" ";
+    }
 
 
 
