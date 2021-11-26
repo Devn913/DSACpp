@@ -1,3 +1,7 @@
+/*
+Code : Find height
+Given a generic tree, find and return the height of given tree.
+*/
 #include "iostream"
 #include "vector"
 #include "queue"
