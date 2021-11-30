@@ -83,24 +83,24 @@ void printLineWise(BinaryTree<int> *root)
         cout << endl;
     }
 }
-BinaryTree<int> *mirror(BinaryTree<int> *root)
+void mirror(BinaryTree<int> *root)
 {
     if (root == NULL)
     {
-        return NULL;
+        return;
     }
-    root->left = mirror(root->left);
-    root->right = mirror(root->right);
+    mirror(root->left);
+    mirror(root->right);
     BinaryTree<int> *temp = root->left;
     root->left = root->right;
     root->right = temp;
-    return root;
+    return;
 }
 int main()
 {
     BinaryTree<int> *root = inputLineWise();
     printLineWise(root);
-    root = mirror(root);
+    mirror(root);
     cout << "Mirrored: " << endl;
     printLineWise(root);
 }
