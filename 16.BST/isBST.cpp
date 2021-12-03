@@ -1,14 +1,10 @@
 /*
-Search for a node in a Binary search tree
- 7 8 9 10 11 12 13
-        10
-    8       12
-  7   9   11  13
-
-  8 9 7
+Check is the given tree is a BST
 */
 #include "iostream"
 #include "queue"
+#include <bits/stdc++.h>
+#include "math.h"
 using namespace std;
 template <typename T>
 class BinaryTree
@@ -54,35 +50,31 @@ BinaryTree<int> *inputLineWise()
     }
     return root;
 }
-BinaryTree<int> *search(BinaryTree<int> *root, int data)
+pair<pair<int, int>, bool> isBST(BinaryTree<int> *root)
 {
     if (root == NULL)
     {
-        return root;
+        pair<int, int> max_min(INT_MIN, INT_MAX);
+        pair<pair<int, int>, bool> res(max_min, true);
+        return res;
     }
-    if (root->data == data)
-    {
-        return root;
-    }
-    else if (root->data > data)
-    {
-        return search(root->left, data);
-    }
-    else
-    {
-        return search(root->right, data);
-    }
+    pair<pair<int, int>, bool> left = isBST(root->left);
+    pair<pair<int, int>, bool> right = isBST(root->right);
+    bool val = left.second && right.second && (root->data <= right.first.second) && (root->data > left.first.first);
+    pair<int, int> max_min(max(root->data, max(left.first.first, right.first.first)), min(root->data, min(left.first.second, left.first.second)));
+    pair<pair<int, int>, bool> res(max_min, val);
+    return res;
 }
 int main()
 {
     BinaryTree<int> *root = inputLineWise();
-    BinaryTree<int> *res = search(root, 10);
-    if (res == NULL)
+    pair<pair<int, int>, bool> res = isBST(root);
+    if (res.second)
     {
-        cout << "Not Found" << endl;
+        cout << "Yes a BST" << endl;
     }
     else
     {
-        cout << "Found" << endl;
+        cout << "Not a BST" << endl;
     }
 }
