@@ -18,7 +18,7 @@ vector<int> removeDuplicate(int *arr, int len)
         }
         else
         {
-            res->push_back(arr[i]);
+            res.push_back(arr[i]);
             map[arr[i]] = true;
         }
     }
