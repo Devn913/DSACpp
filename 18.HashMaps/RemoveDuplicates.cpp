@@ -6,10 +6,10 @@ Given an array fo numbers you need to return a vector with no duplicates with pr
 #include "vector"
 using namespace std;
 
-vector<int> *removeDuplicate(int *arr, int len)
+vector<int> removeDuplicate(int *arr, int len)
 {
     unordered_map<int, bool> map;
-    vector<int> *res = new vector<int>();
+    vector<int> res;
     for (int i = 0; i < len; i++)
     {
         if (map.count(arr[i]) > 0)
@@ -38,9 +38,9 @@ int main()
         counter++;
     }
 
-    vector<int> *res = removeDuplicate(arr, len);
-    for (int i = 0; i < res->size(); i++)
+    vector<int> res = removeDuplicate(arr, len);
+    for (int i = 0; i < res.size(); i++)
     {
-        cout << res->at(i) << " ";
+        cout << res[i] << " ";
     }
 }
