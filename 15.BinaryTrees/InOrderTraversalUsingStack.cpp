@@ -64,8 +64,7 @@ void inOrder(BinaryTree<int> *root){
         s.pop();
         cout << current->data << " ";
         current = current->right;
-    }   
-    
+    }    
 }
 int main(){
     BinaryTree<int> *root = inputLineWise();
